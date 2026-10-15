@@ -1,0 +1,411 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Abdallah Mohamed Anwer — Full-Stack Developer &amp; Web Security</title>
+<meta name="description" content="Portfolio of Abdallah Mohamed Anwer: full-stack web developer with a security operations mindset. Frontend, backend, web security and AI-assisted vibe coding.">
+<meta name="theme-color" content="#0C0E0D">
+<meta property="og:title" content="Abdallah Mohamed Anwer — Full-Stack Developer &amp; Web Security">
+<meta property="og:description" content="I build the interface, the API, and the defenses around them.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230C0E0D'/%3E%3Cpath d='M32 10l20 8v14c0 11-8 19-20 22-12-3-20-11-20-22V18z' fill='none' stroke='%23C6F24E' stroke-width='4' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=DM+Sans:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+:root{--accent:#C6F24E;--bg:#0C0E0D;--panel:#141815;--line:#232A25;--line2:#3A433D;--text:#E9E6DD;--muted:#9BA39D;--dim:#8A938D;--mono:'JetBrains Mono',monospace;--display:'Bricolage Grotesque',sans-serif}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;font-size:17px;line-height:1.6;overflow-x:hidden}
+a{color:var(--text);text-decoration:none}
+a:hover{color:var(--accent)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px}
+h1,h2,h3,p{margin:0}
+.wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+.eyebrow{font-family:var(--mono);font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.h2{font-family:var(--display);font-weight:700;font-size:clamp(32px,4.5vw,52px);line-height:1.1;letter-spacing:-.01em}
+
+@keyframes rise{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
+@keyframes type{from{width:0}}
+@keyframes blink{50%{opacity:0}}
+@keyframes drift{from{background-position:0 0}to{background-position:56px 56px}}
+@keyframes scan{from{transform:translateY(-10%)}to{transform:translateY(110%)}}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes feed{from{transform:translateY(0)}to{transform:translateY(-50%)}}
+@keyframes ping{0%{box-shadow:0 0 0 0 rgba(198,242,78,.55)}100%{box-shadow:0 0 0 12px rgba(198,242,78,0)}}
+@keyframes sweep{from{background-size:0 4px}to{background-size:100% 4px}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+
+.rise{animation:rise .9s cubic-bezier(.2,.7,.2,1) both}
+.d1{animation-delay:.1s}.d2{animation-delay:.25s}.d3{animation-delay:.4s}.d4{animation-delay:.55s}.d5{animation-delay:.7s}
+@supports (animation-timeline:view()){
+.reveal{animation:rise linear both;animation-timeline:view();animation-range:entry 0% entry 40%}
+}
+
+/* nav + hero */
+.nav{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;padding:28px 0}
+.logo{font-family:var(--mono);font-size:15px;color:var(--accent)}
+.nav nav{display:flex;flex-wrap:wrap;gap:28px;font-size:15px}
+.hero{position:relative}
+.grid-bg{position:absolute;inset:0;background-image:linear-gradient(#1A201C 1px,transparent 1px),linear-gradient(90deg,#1A201C 1px,transparent 1px);background-size:56px 56px;animation:drift 14s linear infinite;-webkit-mask-image:linear-gradient(#000 55%,transparent);mask-image:linear-gradient(#000 55%,transparent);pointer-events:none}
+.hero .wrap{position:relative}
+.hero-body{padding:72px 0 110px;display:flex;flex-wrap:wrap;align-items:center;gap:56px}
+.hero-text{flex:1 1 520px;min-width:0;display:flex;flex-direction:column;gap:28px}
+h1{font-family:var(--display);font-weight:800;font-size:clamp(44px,6.5vw,88px);line-height:1.04;letter-spacing:-.02em}
+h1 span.l{display:block}
+.hl{background-image:linear-gradient(var(--accent),var(--accent));background-repeat:no-repeat;background-position:0 96%;background-size:100% 4px;animation:sweep 1.1s .9s cubic-bezier(.2,.7,.2,1) both}
+.lead{max-width:560px;color:var(--muted);font-size:19px}
+.btns{display:flex;flex-wrap:wrap;gap:14px;margin-top:8px}
+.btn{display:inline-flex;align-items:center;min-height:48px;padding:0 28px;border-radius:10px;font-weight:500;border:1px solid var(--line2);transition:transform .25s,background .25s}
+.btn:hover{transform:translateY(-2px)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:#0C0E0D;font-weight:700}
+.btn.primary:hover{color:#0C0E0D}
+
+/* terminal */
+.term-card{flex:1 1 380px;min-width:0;position:relative;overflow:hidden;background:var(--panel);border:1px solid var(--line);border-radius:16px;animation:float 7s ease-in-out infinite}
+.term-card::after{content:"";position:absolute;left:0;right:0;top:0;height:2px;background:var(--accent);opacity:.18;animation:scan 5s linear infinite;pointer-events:none}
+.term-bar{display:flex;align-items:center;gap:8px;padding:14px 20px;border-bottom:1px solid var(--line)}
+.term-bar i{width:10px;height:10px;border-radius:50%;background:var(--line2)}
+.term-bar span{margin-left:10px;font-family:var(--mono);font-size:13px;color:var(--dim)}
+.term{padding:24px 28px 28px;font-family:var(--mono);font-size:15px;line-height:2;color:var(--muted)}
+.tl{white-space:nowrap;overflow:hidden;max-width:100%;animation:type 1s steps(24) both}
+.t1{animation-delay:.6s}.t2{animation-delay:1.1s}.t3{animation-delay:1.9s}.t4{animation-delay:2.4s}.t5{animation-delay:3.2s}.t6{animation-delay:3.7s}.t7{animation-delay:4.4s}
+.out{color:var(--text)}
+.prompt{color:var(--accent)}
+.caret{display:inline-block;width:9px;height:1.1em;background:var(--accent);vertical-align:text-bottom;animation:blink 1s steps(1) infinite}
+.dot-live{display:inline-block;width:9px;height:9px;border-radius:50%;background:var(--accent);margin-right:10px;animation:ping 1.8s ease-out infinite}
+
+/* marquee */
+.mq-wrap{overflow:hidden;border-top:1px solid var(--line);border-bottom:1px solid var(--line);-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.mq-track{display:flex;width:max-content;animation:marquee 32s linear infinite}
+.mq{font-family:var(--mono);font-size:15px;color:var(--dim);padding:18px 28px;white-space:nowrap}
+.mq::before{content:"/";color:var(--accent);margin-right:28px}
+
+/* sections */
+.section{padding:110px 0 96px}
+.sec-head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:56px}
+.sec-head .t{display:flex;flex-direction:column;gap:12px;flex:1 1 400px;min-width:0}
+.num{font-family:var(--display);font-weight:800;font-size:clamp(64px,9vw,120px);line-height:.9;color:transparent;-webkit-text-stroke:1px var(--line2)}
+
+.caps{display:flex;flex-wrap:wrap;gap:20px}
+.cap{flex:1 1 calc(50% - 20px);min-width:280px;position:relative;overflow:hidden;background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:32px;display:flex;flex-direction:column;gap:16px;transition:transform .35s cubic-bezier(.2,.7,.2,1),border-color .35s}
+.cap::before{content:"";position:absolute;left:0;top:0;height:3px;width:100%;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .45s cubic-bezier(.2,.7,.2,1)}
+.cap:hover{transform:translateY(-6px);border-color:var(--line2)}
+.cap:hover::before{transform:scaleX(1)}
+.cap svg{transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+.cap:hover svg{transform:rotate(-8deg) scale(1.15)}
+.cap-top{display:flex;align-items:center;justify-content:space-between}
+.cap-top span{font-family:var(--mono);font-size:14px;color:var(--dim)}
+.cap h3{font-family:var(--display);font-weight:700;font-size:28px}
+.cap p{color:var(--muted)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.chip{font-family:var(--mono);font-size:13px;padding:4px 12px;border:1px solid #2C352F;border-radius:999px;transition:border-color .25s,color .25s}
+.chip:hover{border-color:var(--accent);color:var(--accent)}
+
+/* detection */
+.detect{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:#0F1211}
+.detect .wrap{padding-top:96px;padding-bottom:96px;display:flex;flex-wrap:wrap;align-items:center;gap:56px}
+.detect .copy{flex:1 1 400px;min-width:0;display:flex;flex-direction:column;gap:20px}
+.detect .copy p{color:var(--muted);max-width:480px}
+.feed-card{flex:1 1 440px;min-width:0;background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:20px 24px}
+.feed-head{display:flex;justify-content:space-between;gap:12px;padding-bottom:14px;border-bottom:1px solid var(--line);font-family:var(--mono);font-size:13px;color:var(--dim)}
+.feed-box{height:260px;overflow:hidden;-webkit-mask-image:linear-gradient(transparent,#000 14%,#000 86%,transparent);mask-image:linear-gradient(transparent,#000 14%,#000 86%,transparent)}
+.feed-track{animation:feed 26s linear infinite}
+.feed-row{display:flex;gap:14px;padding:9px 0;font-family:var(--mono);font-size:14px;white-space:nowrap}
+.feed-row b{font-weight:400;min-width:74px}
+.feed-row span{color:var(--muted)}
+
+/* work */
+.toolbar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;margin-bottom:32px}
+.filters{display:flex;flex-wrap:wrap;gap:10px}
+.filter{cursor:pointer;font-family:var(--mono);font-size:14px;min-height:44px;padding:0 20px;border-radius:999px;background:transparent;color:var(--text);border:1px solid var(--line2);transition:background .25s,color .25s,border-color .25s}
+.filter:hover{border-color:var(--accent)}
+.filter[aria-pressed="true"]{background:var(--accent);color:#0C0E0D;border-color:var(--accent);font-weight:700}
+.count{font-family:var(--mono);font-size:14px;color:var(--dim)}
+.projects{display:flex;flex-wrap:wrap;gap:20px}
+.proj{flex:1 1 320px;max-width:100%;min-width:0;background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:32px;display:flex;flex-direction:column;gap:14px;transition:transform .35s cubic-bezier(.2,.7,.2,1),border-color .35s}
+.proj:hover{transform:translateY(-6px);border-color:var(--accent)}
+.proj .kind{font-family:var(--mono);font-size:13px;color:var(--dim)}
+.proj h3{font-family:var(--display);font-weight:700;font-size:26px}
+.proj p{color:var(--muted);flex-grow:1}
+.proj .stack{font-family:var(--mono);font-size:13px}
+.proj a.gh{margin-top:8px;font-weight:700;color:var(--accent)}
+.proj .arr{display:inline-block;transition:transform .3s}
+.proj:hover .arr{transform:translateX(6px)}
+
+/* contact */
+.contact{border-top:1px solid var(--line)}
+.crow{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px 0;border-top:1px solid var(--line);font-family:var(--mono);font-size:17px;transition:padding .35s cubic-bezier(.2,.7,.2,1),color .25s;overflow-wrap:anywhere}
+.crow:last-child{border-bottom:1px solid var(--line)}
+.crow:hover{padding-left:16px;padding-right:16px;color:var(--accent)}
+.crow svg{flex:none;transition:transform .35s cubic-bezier(.2,.7,.2,1)}
+.crow:hover svg{transform:translate(4px,-4px)}
+.contact h2{font-family:var(--display);font-weight:800;font-size:clamp(36px,5.5vw,72px);line-height:1.05;letter-spacing:-.02em}
+
+footer{border-top:1px solid var(--line)}
+footer .wrap{padding-top:28px;padding-bottom:28px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;font-size:14px;color:var(--dim)}
+footer .m{font-family:var(--mono)}
+
+@media (max-width:480px){.term{font-size:12px}.tl{animation-timing-function:steps(18)}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<header class="hero" id="top">
+<div class="grid-bg" aria-hidden="true"></div>
+<div class="wrap">
+<div class="nav rise">
+<a class="logo" href="#top">&lt;Abdallah Anwer /&gt;</a>
+<nav aria-label="Main">
+<a href="#capabilities">Capabilities</a>
+<a href="#detection">Detection</a>
+<a href="#work">Work</a>
+<a href="#contact">Contact</a>
+</nav>
+</div>
+
+<div class="hero-body">
+<div class="hero-text">
+<div class="eyebrow rise d1">Full-stack developer · Web security</div>
+<h1>
+<span class="l rise d2">I build the interface,</span>
+<span class="l rise d3">the API, and the</span>
+<span class="l rise d4"><span class="hl">defenses</span> around them.</span>
+</h1>
+<p class="lead rise d5">I'm Abdallah, a web developer with a security operations mindset. I ship fast with AI-assisted vibe coding, then review and harden everything like a SOC analyst would.</p>
+<div class="btns rise d5">
+<a class="btn primary" href="#work">View projects</a>
+<a class="btn" href="#contact">Get in touch</a>
+</div>
+</div>
+
+<div class="term-card rise d3" role="img" aria-label="Terminal: Abdallah Mohamed Anwer, stack frontend, backend, web-security, open to work">
+<div class="term-bar"><i></i><i></i><i></i><span>portfolio.sh</span></div>
+<div class="term" aria-hidden="true">
+<div class="tl t1" style="width:10ch"><span class="prompt">$</span> whoami</div>
+<div class="tl t2 out" style="width:22ch">Abdallah Mohamed Anwer</div>
+<div class="tl t3" style="width:14ch"><span class="prompt">$</span> stack --list</div>
+<div class="tl t4 out" style="width:33ch">frontend · backend · web-security</div>
+<div class="tl t5" style="width:10ch"><span class="prompt">$</span> workflow</div>
+<div class="tl t6 out" style="width:30ch">prompt → build → review → ship</div>
+<div class="tl t7 out" style="width:14ch"><span class="dot-live"></span>open to work</div>
+<div><span class="prompt">$</span> <span class="caret"></span></div>
+</div>
+</div>
+</div>
+</div>
+</header>
+
+<div class="mq-wrap" aria-hidden="true"><div class="mq-track" id="marquee"></div></div>
+
+<main>
+<section id="capabilities" class="section">
+<div class="wrap">
+<div class="sec-head reveal">
+<div class="t"><div class="eyebrow">Capabilities</div><h2 class="h2">Four skills, one workflow.</h2></div>
+<div class="num" aria-hidden="true">01</div>
+</div>
+<div class="caps">
+
+<article class="cap reveal">
+<div class="cap-top">
+<svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#C6F24E" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 21h8M12 18v3"/></svg>
+<span>01</span>
+</div>
+<h3>Frontend</h3>
+<p>Fast, accessible interfaces that hold up on every screen size.</p>
+<div class="chips"><span class="chip">HTML / CSS</span><span class="chip">JavaScript</span><span class="chip">React</span><span class="chip">Vite</span><span class="chip">Responsive design</span><span class="chip">Accessibility</span></div>
+</article>
+
+<article class="cap reveal">
+<div class="cap-top">
+<svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#C6F24E" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></svg>
+<span>02</span>
+</div>
+<h3>Backend</h3>
+<p>APIs and data layers designed for clarity, reliability and scale.</p>
+<div class="chips"><span class="chip">Node.js</span><span class="chip">Express</span><span class="chip">REST APIs</span><span class="chip">MongoDB</span><span class="chip">SQLite / Sequelize</span><span class="chip">JWT / OAuth</span><span class="chip">Docker</span></div>
+</article>
+
+<article class="cap reveal">
+<div class="cap-top">
+<svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#C6F24E" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 3v6c0 4.5-3.2 8-8 9-4.8-1-8-4.5-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg>
+<span>03</span>
+</div>
+<h3>SOC for Web</h3>
+<p>Monitoring and defending web apps: logs, alerts and incident triage.</p>
+<div class="chips"><span class="chip">OWASP Top 10</span><span class="chip">Wireshark</span><span class="chip">Log analysis</span><span class="chip">Rate limiting &amp; lockout</span><span class="chip">Secure headers</span><span class="chip">Applied cryptography</span></div>
+</article>
+
+<article class="cap reveal">
+<div class="cap-top">
+<svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#C6F24E" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 8l-4 4 4 4M16 8l4 4-4 4M13.5 5l-3 14"/></svg>
+<span>04</span>
+</div>
+<h3>Vibe Coding</h3>
+<p>AI-assisted building: I direct the model, then review and harden what it writes.</p>
+<div class="chips"><span class="chip">Claude Code</span><span class="chip">Prompt design</span><span class="chip">Rapid prototyping</span><span class="chip">Code review</span><span class="chip">Security checks</span></div>
+</article>
+
+</div>
+</div>
+</section>
+
+<section id="detection" class="detect">
+<div class="wrap">
+<div class="copy reveal">
+<div class="eyebrow">Detection mindset</div>
+<h2 class="h2">I watch what my apps do, not just what they return.</h2>
+<p>Every server I build logs failed logins, rejected tokens and rate-limit hits, so attacks leave a trail I can read, triage and respond to.</p>
+</div>
+<div class="feed-card reveal">
+<div class="feed-head"><span><span class="dot-live"></span>event stream</span><span>sample data</span></div>
+<div class="feed-box" aria-hidden="true"><div class="feed-track" id="feed"></div></div>
+</div>
+</div>
+</section>
+
+<section id="work" class="section">
+<div class="wrap">
+<div class="sec-head reveal">
+<div class="t"><div class="eyebrow">Work</div><h2 class="h2">Selected projects.</h2></div>
+<div class="num" aria-hidden="true">02</div>
+</div>
+<div class="toolbar">
+<div class="filters" id="filters" role="group" aria-label="Filter projects"></div>
+<div class="count" id="count" aria-live="polite"></div>
+</div>
+<div class="projects" id="projects"></div>
+<noscript><p style="color:#9BA39D">Enable JavaScript to see the project list, or visit <a href="https://github.com/AbdallahElkrsh" style="color:#C6F24E">github.com/AbdallahElkrsh</a>.</p></noscript>
+</div>
+</section>
+
+<section id="contact" class="contact section">
+<div class="wrap">
+<div class="sec-head reveal">
+<div class="t"><div class="eyebrow">Contact</div><h2>Let's build something secure.</h2></div>
+<div class="num" aria-hidden="true">03</div>
+</div>
+<div class="reveal">
+<a class="crow" href="mailto:am01204398896@gmail.com"><span>am01204398896@gmail.com</span><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a>
+<a class="crow" href="https://github.com/AbdallahElkrsh" target="_blank" rel="noopener"><span>github.com/AbdallahElkrsh</span><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a>
+<a class="crow" href="https://www.linkedin.com/in/abdallah-mohamed-5137ab322" target="_blank" rel="noopener"><span>linkedin.com/in/abdallah-mohamed</span><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a>
+</div>
+</div>
+</section>
+</main>
+
+<footer>
+<div class="wrap">
+<span>© 2026 Abdallah Mohamed Anwer</span>
+<span class="m">Frontend · Backend · Web Security</span>
+</div>
+</footer>
+
+<script>
+(function () {
+  var PROJECTS = [
+    { kind: 'Full-stack · Security', name: 'Secure Document Vault', desc: 'Web platform to upload, encrypt, sign and verify documents, with JWT, GitHub/Google OAuth, TOTP two-factor auth, role-based access and HTTPS.', stack: 'React · Vite · Node.js · Express · MongoDB', url: 'https://github.com/AbdallahElkrsh/secure_vault', cat: 'fullstack' },
+    { kind: 'Backend · Authentication', name: 'Auth System', desc: 'REST authentication service with registration, login, bcrypt password hashing, JWT sessions and QR-code two-factor authentication, plus its own front-end pages.', stack: 'Node.js · Express · SQLite · Sequelize · JWT', url: 'https://github.com/AbdallahElkrsh/auth_system', cat: 'fullstack' },
+    { kind: 'Web security · Lab', name: 'Vulnerable Node.js App Analysis', desc: 'Security lab on an intentionally vulnerable Express API covering SQL injection, XSS, SSRF, XXE, JWT flaws and broken access control.', stack: 'Node.js · Express · Docker · Swagger', url: 'https://github.com/AbdallahElkrsh/project_SSD', cat: 'lab' },
+    { kind: 'Web security · Lab', name: 'JWT Attack & Defense Lab', desc: 'Two servers side by side: one with a weak secret and unsigned-token acceptance, one hardened with short-lived access tokens and HttpOnly refresh cookies.', stack: 'Node.js · Express · SQLite · JWT', url: 'https://github.com/AbdallahElkrsh/assig-lab2', cat: 'lab' },
+    { kind: 'Web security · Hardening', name: 'Hardened Login Server', desc: 'Login backend hardened against SQL injection and brute force: validation, bcrypt, rate limiting, failed-attempt lockout, secure headers and structured logging.', stack: 'Node.js · SQLite · Helmet · Winston · bcrypt', url: 'https://github.com/AbdallahElkrsh/assg-lab1', cat: 'lab' },
+    { kind: 'Cryptography · Python', name: 'Classical Ciphers', desc: 'Python implementations of the Playfair and monoalphabetic substitution ciphers, built from scratch to understand how classical encryption works.', stack: 'Python', url: 'https://github.com/AbdallahElkrsh/task', cat: 'crypto' }
+  ];
+  var FILTERS = [
+    { id: 'all', label: 'All' },
+    { id: 'fullstack', label: 'Full-stack' },
+    { id: 'lab', label: 'Security labs' },
+    { id: 'crypto', label: 'Cryptography' }
+  ];
+  var TECH = ['React', 'Vite', 'Node.js', 'Express', 'MongoDB', 'SQLite', 'JWT', 'OAuth 2.0', 'Docker', 'Wireshark', 'OWASP', 'Python', 'Claude Code'];
+  var LV = {
+    info: { label: '● INFO', color: '#9BA39D' },
+    warn: { label: '▲ WARN', color: '#FFB454' },
+    alert: { label: '■ ALERT', color: '#FF7A7A' }
+  };
+  var EVENTS = [
+    ['info', 'JWT verified · HS256 · 15m expiry'],
+    ['warn', 'SQLi pattern rejected · POST /login'],
+    ['info', 'TOTP 2FA code accepted'],
+    ['alert', '5 failed logins · account locked'],
+    ['warn', 'Token with alg=none rejected'],
+    ['info', 'Rate limiter reset · window closed'],
+    ['warn', 'Upload blocked · file type not allowed'],
+    ['info', 'Document hash verified · SHA-256'],
+    ['alert', 'Brute-force burst · IP throttled'],
+    ['info', 'Refresh token rotated']
+  ];
+
+  function el(tag, cls, text) {
+    var n = document.createElement(tag);
+    if (cls) n.className = cls;
+    if (text !== undefined) n.textContent = text;
+    return n;
+  }
+
+  // marquee (list doubled for a seamless loop)
+  var mq = document.getElementById('marquee');
+  TECH.concat(TECH).forEach(function (t) { mq.appendChild(el('span', 'mq', t)); });
+
+  // detection feed
+  var feed = document.getElementById('feed');
+  EVENTS.concat(EVENTS).forEach(function (e) {
+    var row = el('div', 'feed-row');
+    var lvl = el('b', null, LV[e[0]].label);
+    lvl.style.color = LV[e[0]].color;
+    row.appendChild(lvl);
+    row.appendChild(el('span', null, e[1]));
+    feed.appendChild(row);
+  });
+
+  // projects + filters
+  var filtersBox = document.getElementById('filters');
+  var grid = document.getElementById('projects');
+  var count = document.getElementById('count');
+  var active = 'all';
+
+  function renderProjects() {
+    grid.textContent = '';
+    var shown = PROJECTS.filter(function (p) { return active === 'all' || p.cat === active; });
+    shown.forEach(function (p, i) {
+      var card = el('article', 'proj rise');
+      card.style.animationDelay = (i * 0.08) + 's';
+      card.appendChild(el('div', 'kind', p.kind));
+      card.appendChild(el('h3', null, p.name));
+      card.appendChild(el('p', null, p.desc));
+      card.appendChild(el('div', 'stack', p.stack));
+      var a = el('a', 'gh', 'View on GitHub ');
+      a.href = p.url;
+      a.target = '_blank';
+      a.rel = 'noopener';
+      a.appendChild(el('span', 'arr', '→'));
+      card.appendChild(a);
+      grid.appendChild(card);
+    });
+    count.textContent = 'Showing ' + shown.length + ' of ' + PROJECTS.length;
+  }
+
+  function renderFilters() {
+    filtersBox.textContent = '';
+    FILTERS.forEach(function (f) {
+      var b = el('button', 'filter', f.label);
+      b.type = 'button';
+      b.setAttribute('aria-pressed', f.id === active ? 'true' : 'false');
+      b.addEventListener('click', function () {
+        active = f.id;
+        renderFilters();
+        renderProjects();
+      });
+      filtersBox.appendChild(b);
+    });
+  }
+
+  renderFilters();
+  renderProjects();
+})();
+</script>
+</body>
+</html>
